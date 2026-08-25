@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { NRC_ULTRA_DEFAULT_MODULE_STATE, setModuleEnabled, applyProfile, type NrcModuleState } from '../config/nrcUltraModuleState';
+import { NRC_ULTRA_DEFAULT_MODULE_STATE, setModuleEnabled, type NrcModuleState } from '../config/nrcUltraModuleState';
 import { NRC_ULTRA_MODULES } from '../config/nrcUltra';
 import { detectServerProfile } from '../config/nrcUltraServerProfiles';
 
