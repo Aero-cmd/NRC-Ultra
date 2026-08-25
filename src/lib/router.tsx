@@ -8,9 +8,8 @@ import { StoreTab } from "../components/tabs/StoreTab";
 import { BrowseTabWrapper } from "../components/profiles/BrowseTabWrapper";
 import { ProfilesTabV2 } from "../components/tabs/ProfilesTabV2";
 import { ProfileDetailViewV2Wrapper } from "../components/profiles/ProfileDetailViewV2Wrapper";
-// DISABLED: Advent Calendar (seasonal feature)
-// import { AdventCalendarTab } from "../components/advent-calendar/AdventCalendarTab";
 import { ModDetailPage } from "../components/mods/ModDetailPage";
+import { NrcUltraTab } from "../components/tabs/NrcUltraTab";
 
 export const router = createHashRouter([
   {
@@ -18,55 +17,18 @@ export const router = createHashRouter([
     element: <App />,
     errorElement: <RouteErrorBoundary />,
     children: [
-      {
-        index: true,
-        element: <Navigate to="/play" replace />,
-      },
-      {
-        path: "play",
-        element: <PlayTab />,
-      },
-      {
-        path: "profiles",
-        element: <ProfilesTabV2 />,
-      },
-      {
-        path: "profilesv2/:profileId",
-        element: <ProfileDetailViewV2Wrapper />,
-      },
-      {
-        path: "profiles/:profileId",
-        element: <ProfileDetailViewV2Wrapper />,
-      },
-      {
-        path: "profilesv2/:profileId/browse/:contentType",
-        element: <BrowseTabWrapper />,
-      },
-      {
-        path: "profiles/:profileId/browse/:contentType",
-        element: <BrowseTabWrapper />,
-      },
-      {
-        path: "mods",
-        element: <ModrinthTabV2 />,
-      },
-      {
-        path: "mods/:source/:projectId",
-        element: <ModDetailPage />,
-      },
-      {
-        path: "skins",
-        element: <SkinsTab />,
-      },
-      {
-        path: "capes",
-        element: <StoreTab />,
-      },
-      // DISABLED: Advent Calendar (seasonal feature)
-      // {
-      //   path: "advent-calendar",
-      //   element: <AdventCalendarTab />,
-      // },
+      { index: true, element: <Navigate to="/play" replace /> },
+      { path: "play", element: <PlayTab /> },
+      { path: "profiles", element: <ProfilesTabV2 /> },
+      { path: "profilesv2/:profileId", element: <ProfileDetailViewV2Wrapper /> },
+      { path: "profiles/:profileId", element: <ProfileDetailViewV2Wrapper /> },
+      { path: "profilesv2/:profileId/browse/:contentType", element: <BrowseTabWrapper /> },
+      { path: "profiles/:profileId/browse/:contentType", element: <BrowseTabWrapper /> },
+      { path: "mods", element: <ModrinthTabV2 /> },
+      { path: "mods/:source/:projectId", element: <ModDetailPage /> },
+      { path: "nrc-ultra", element: <NrcUltraTab /> },
+      { path: "skins", element: <SkinsTab /> },
+      { path: "capes", element: <StoreTab /> },
     ],
   },
 ]);
