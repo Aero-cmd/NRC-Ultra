@@ -15,7 +15,7 @@ export interface NrcUltraClientConfig {
 export function buildNrcUltraClientConfig(config: NrcUltraLaunchConfig): NrcUltraClientConfig {
   const enabledModules: Record<string, boolean> = {};
   for (const module of NRC_ULTRA_MODULE_MANIFEST) {
-    enabledModules[module.id] = config.preset.modules[module.id]?.enabled ?? module.defaultEnabled;
+    enabledModules[module.id] = config.preset.modules[module.id] ?? module.enabledByDefault;
   }
 
   return {
