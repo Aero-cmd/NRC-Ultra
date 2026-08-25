@@ -15,64 +15,35 @@ export const NRC_ULTRA_VERSION = '0.1.0';
 
 export const NRC_ULTRA_PROFILES: NrcPerformanceProfile[] = [
   {
-    id: 'intel-macos-donutsmp',
-    name: 'Intel Mac — DonutSMP',
-    description: 'Low-overhead settings tuned for Intel Macs while keeping DonutSMP responsive.',
-    target: 'intel-macos',
-    renderDistance: 12,
-    simulationDistance: 8,
-    maxFps: 240,
-    particles: 'decreased',
-    entityDistance: 80,
-    backgroundFps: 30,
+    id: 'intel-macos-donutsmp', name: 'Intel Mac — DonutSMP',
+    description: 'Low-overhead settings tuned as a conservative Intel Mac multiplayer baseline.',
+    target: 'intel-macos', renderDistance: 8, simulationDistance: 5, maxFps: 240,
+    particles: 'decreased', entityDistance: 75, backgroundFps: 20,
   },
   {
-    id: 'intel-macos',
-    name: 'Intel Mac',
+    id: 'intel-macos', name: 'Intel Mac',
     description: 'Balanced Intel Mac profile with conservative background work.',
-    target: 'intel-macos',
-    renderDistance: 10,
-    simulationDistance: 8,
-    maxFps: 180,
-    particles: 'decreased',
-    entityDistance: 64,
-    backgroundFps: 30,
+    target: 'intel-macos', renderDistance: 10, simulationDistance: 6, maxFps: 180,
+    particles: 'decreased', entityDistance: 64, backgroundFps: 20,
   },
   {
-    id: 'maximum-fps',
-    name: 'Maximum FPS',
+    id: 'maximum-fps', name: 'Maximum FPS',
     description: 'Prioritise frame rate and frametime consistency.',
-    target: 'generic',
-    renderDistance: 8,
-    simulationDistance: 6,
-    maxFps: 0,
-    particles: 'minimal',
-    entityDistance: 48,
-    backgroundFps: 30,
+    target: 'generic', renderDistance: 8, simulationDistance: 5, maxFps: 0,
+    particles: 'minimal', entityDistance: 64, backgroundFps: 15,
   },
   {
-    id: 'balanced',
-    name: 'Balanced',
+    id: 'balanced', name: 'Balanced',
     description: 'A sensible performance and visual-quality baseline.',
-    target: 'generic',
-    renderDistance: 12,
-    simulationDistance: 8,
-    maxFps: 240,
-    particles: 'decreased',
-    entityDistance: 80,
-    backgroundFps: 30,
+    target: 'generic', renderDistance: 12, simulationDistance: 6, maxFps: 240,
+    particles: 'decreased', entityDistance: 100, backgroundFps: 30,
   },
 ];
 
 export type NrcModuleCategory = 'hud' | 'performance' | 'chat' | 'inventory' | 'world' | 'qol' | 'cosmetics';
-
 export type NrcModuleDefinition = {
-  id: string;
-  name: string;
-  category: NrcModuleCategory;
-  description: string;
-  performanceCost: 'none' | 'low' | 'medium';
-  serverAware?: boolean;
+  id: string; name: string; category: NrcModuleCategory; description: string;
+  performanceCost: 'none' | 'low' | 'medium'; serverAware?: boolean;
 };
 
 export const NRC_ULTRA_MODULES: NrcModuleDefinition[] = [
