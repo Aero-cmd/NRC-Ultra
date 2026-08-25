@@ -1,4 +1,4 @@
-export type NrcMinecraftLoader = 'fabric' | 'forge' | 'neoforge' | 'quilt';
+export type NrcMinecraftLoader = 'vanilla' | 'fabric' | 'forge' | 'neoforge' | 'quilt';
 export type NrcContentKind = 'mod' | 'resource-pack' | 'shader' | 'data-pack';
 
 export type NrcInstanceContent = {
@@ -25,7 +25,7 @@ export type NrcInstance = {
   serverProfileId: string;
 };
 
-export const NRC_MINECRAFT_LOADERS: readonly NrcMinecraftLoader[] = ['fabric', 'forge', 'neoforge', 'quilt'];
+export const NRC_MINECRAFT_LOADERS: readonly NrcMinecraftLoader[] = ['vanilla', 'fabric', 'forge', 'neoforge', 'quilt'];
 
 export const DEFAULT_NRC_INSTANCE: Omit<NrcInstance, 'id' | 'name' | 'minecraftVersion'> = {
   loader: 'fabric', minMemoryMb: 1024, maxMemoryMb: 4096, contents: [], moduleState: {},
@@ -38,7 +38,7 @@ export function isClientLoader(loader: NrcMinecraftLoader) {
 
 export function isContentCompatible(kind: NrcContentKind, loader: NrcMinecraftLoader) {
   if (kind !== 'mod') return true;
-  return isClientLoader(loader);
+  return loader !== 'vanilla';
 }
 
 export function validateNrcInstance(instance: NrcInstance): string[] {
