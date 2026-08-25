@@ -1,6 +1,6 @@
 import type { Profile } from '../types/profile';
 import type { NrcModuleState } from './nrcUltraModuleState';
-import { detectNrcUltraServerProfile } from './nrcUltraServerProfiles';
+import { detectServerProfile } from './nrcUltraServerProfiles';
 
 export interface NrcUltraProfilePreset {
   modules: NrcModuleState;
@@ -9,10 +9,9 @@ export interface NrcUltraProfilePreset {
 }
 
 /** Derives an NRC Ultra preset from an existing launcher profile without mutating it. */
-export function getNrcUltraPreset(profile: Profile): NrcUltraProfilePreset {
-  const address = profile.server_address ?? '';
-  const server = detectNrcUltraServerProfile(address);
-  const modules = server.moduleOverrides;
+export function getNrcUltraPreset(profile: Profile, serverAddress = ''): NrcUltraProfilePreset {
+  const server = detectServerProfile(serverAddress);
+  const modules = server.moduleState;
   const performanceProfile = server.id === 'donutsmp' ? 'max-performance' : 'balanced';
 
   return {
