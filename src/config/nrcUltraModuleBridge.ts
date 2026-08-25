@@ -8,6 +8,7 @@ export interface NrcUltraClientConfig {
   loader: string;
   serverProfile: string;
   performanceProfile: string;
+  performanceBudget: NrcUltraLaunchConfig['performanceBudget'];
   enabledModules: Record<string, boolean>;
 }
 
@@ -25,6 +26,7 @@ export function buildNrcUltraClientConfig(config: NrcUltraLaunchConfig): NrcUltr
     loader: config.instance.loader,
     serverProfile: config.preset.serverProfile,
     performanceProfile: config.preset.performanceProfile,
+    performanceBudget: config.performanceBudget,
     enabledModules,
   };
 }
